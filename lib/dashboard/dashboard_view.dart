@@ -32,7 +32,9 @@ class _DashboardViewState extends State<DashboardView> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-              child: Divider(),
+              child: Divider(
+                thickness: 2,
+              ),
             ),
             Obx(
               () => Wrap(
