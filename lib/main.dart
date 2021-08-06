@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nonamegamesuite/core/navigation_controller.dart';
+import 'package:nonamegamesuite/core/navigation_service.dart';
 import 'package:nonamegamesuite/dashboard/dashboard_service.dart';
 import 'package:nonamegamesuite/games/tictactoe/tictactoe.dart';
 
 void main() {
   Get.put(DashboardService());
-  Get.put(NavigationController());
+  Get.put(NavigationService());
 
   initGames();
 
@@ -27,7 +27,7 @@ class NoNameGameSuite extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: '/',
-      getPages: Get.find<NavigationController>().navigationPages,
+      getPages: Get.find<NavigationService>().navigationPages,
     );
   }
 }

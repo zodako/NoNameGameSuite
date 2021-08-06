@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:nonamegamesuite/dashboard/dashboard_view.dart';
 
-class NavigationController extends GetxController {
+class NavigationService extends GetxService {
 
   List<GetPage> _navigationPages = [];
   List<GetPage> get navigationPages => _navigationPages;

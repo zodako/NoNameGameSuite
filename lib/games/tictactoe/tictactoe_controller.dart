@@ -93,7 +93,7 @@ class TicTacToeController extends GetxController {
 
 // TODO This should be extracted to core service
 class Player {
-  var symbol;
+  String symbol;
   var name;
   var score = 0;
 

@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nonamegamesuite/games/tictactoe/tictactoe_controller.dart';
 
+typedef BorderFunction = Border Function(int);
+
 class TicTacToeViewLandscape extends StatelessWidget {
-
   final TicTacToeController ticTacToeController;
-  final Function borderFunction;
+  final BorderFunction borderFunction;
 
-  TicTacToeViewLandscape({required this.ticTacToeController, required this.borderFunction});
+  const TicTacToeViewLandscape({required this.ticTacToeController, required this.borderFunction});
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +27,13 @@ class TicTacToeViewLandscape extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Container(
-                      child: Obx(
-                            () => Text(
-                          '${ticTacToeController.players[0].name} (${ticTacToeController.players[0].symbol})',
-                          style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              decoration: ticTacToeController.currentPlayer.value == 0
-                                  ? TextDecoration.underline
-                                  : TextDecoration.none),
-                        ),
+                    Obx(
+                      () => Text(
+                        '${ticTacToeController.players[0].name} (${ticTacToeController.players[0].symbol})',
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            decoration: ticTacToeController.currentPlayer.value == 0
+                                ? TextDecoration.underline
+                                : TextDecoration.none),
                       ),
                     ),
                     Padding(
@@ -50,7 +49,7 @@ class TicTacToeViewLandscape extends StatelessWidget {
                     crossAxisCount: 3,
                     children: List.generate(
                       9,
-                          (index) => GestureDetector(
+                      (index) => GestureDetector(
                         onTap: () {
                           ticTacToeController.playerMove(index);
                         },
@@ -62,9 +61,9 @@ class TicTacToeViewLandscape extends StatelessWidget {
                           ),
                           child: Center(
                             child: Obx(
-                                  () => Text(
+                              () => Text(
                                 ticTacToeController.fields[index],
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.teal,
                                   fontSize: 75,
                                   fontWeight: FontWeight.bold,
@@ -79,15 +78,13 @@ class TicTacToeViewLandscape extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Container(
-                      child: Obx(
-                            () => Text(
-                          '${ticTacToeController.players[1].name} (${ticTacToeController.players[1].symbol})',
-                          style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              decoration: ticTacToeController.currentPlayer.value == 1
-                                  ? TextDecoration.underline
-                                  : TextDecoration.none),
-                        ),
+                    Obx(
+                      () => Text(
+                        '${ticTacToeController.players[1].name} (${ticTacToeController.players[1].symbol})',
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            decoration: ticTacToeController.currentPlayer.value == 1
+                                ? TextDecoration.underline
+                                : TextDecoration.none),
                       ),
                     ),
                     Padding(

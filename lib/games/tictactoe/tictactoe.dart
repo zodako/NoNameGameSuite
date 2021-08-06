@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:nonamegamesuite/core/navigation_controller.dart';
+import 'package:nonamegamesuite/core/navigation_service.dart';
 import 'package:nonamegamesuite/dashboard/dashboard_service.dart';
 import 'package:nonamegamesuite/games/tictactoe/tictactoe_controller.dart';
 import 'view/tictactoe_view.dart';
@@ -11,7 +11,7 @@ class TicTacToe {
     dashboardService.games.add(DashboardIcon(name: 'TicTacToe', navigationTarget: '/tictactoe'));
 
     // add routes for tictactoe to the navigation service
-    NavigationController navigationController = Get.find<NavigationController>();
+    NavigationService navigationController = Get.find<NavigationService>();
     navigationController.addNavigationPage(
       page: GetPage(
         name: '/tictactoe',

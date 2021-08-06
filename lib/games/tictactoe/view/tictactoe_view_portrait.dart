@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nonamegamesuite/games/tictactoe/tictactoe_controller.dart';
 
+typedef BorderFunction = Border Function(int);
+
 class TicTacToeViewPortrait extends StatelessWidget {
 
   final TicTacToeController ticTacToeController;
-  final Function borderFunction;
+  final BorderFunction borderFunction;
 
-  TicTacToeViewPortrait({required this.ticTacToeController, required this.borderFunction});
+  const TicTacToeViewPortrait({required this.ticTacToeController, required this.borderFunction});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class TicTacToeViewPortrait extends StatelessWidget {
                         child: Obx(
                               () => Text(
                             ticTacToeController.fields[index],
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.teal,
                               fontSize: 75,
                               fontWeight: FontWeight.bold,
@@ -60,15 +62,13 @@ class TicTacToeViewPortrait extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Container(
-                      child: Obx(
-                            () => Text(
-                          '${ticTacToeController.players[0].name} (${ticTacToeController.players[0].symbol})',
-                          style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              decoration: ticTacToeController.currentPlayer.value == 0
-                                  ? TextDecoration.underline
-                                  : TextDecoration.none),
-                        ),
+                    Obx(
+                          () => Text(
+                        '${ticTacToeController.players[0].name} (${ticTacToeController.players[0].symbol})',
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            decoration: ticTacToeController.currentPlayer.value == 0
+                                ? TextDecoration.underline
+                                : TextDecoration.none),
                       ),
                     ),
                     Padding(
@@ -79,15 +79,13 @@ class TicTacToeViewPortrait extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Container(
-                      child: Obx(
-                            () => Text(
-                          '${ticTacToeController.players[1].name} (${ticTacToeController.players[1].symbol})',
-                          style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              decoration: ticTacToeController.currentPlayer.value == 1
-                                  ? TextDecoration.underline
-                                  : TextDecoration.none),
-                        ),
+                    Obx(
+                          () => Text(
+                        '${ticTacToeController.players[1].name} (${ticTacToeController.players[1].symbol})',
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            decoration: ticTacToeController.currentPlayer.value == 1
+                                ? TextDecoration.underline
+                                : TextDecoration.none),
                       ),
                     ),
                     Padding(
