@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DashboardService extends GetxService {
-  var games = <DashboardIcon>[].obs;
-
-  @override
-  void onInit() {
-  }
+  List<DashboardIcon> games = <DashboardIcon>[].obs;
 }
 
 class DashboardIcon {
@@ -28,7 +24,7 @@ class DashboardIcon {
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.5),
-                  offset: Offset(7, 7),
+                  offset: const Offset(7, 7),
                   blurRadius: 3,
                   spreadRadius: -5,
                 )

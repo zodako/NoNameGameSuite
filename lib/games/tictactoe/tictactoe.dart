@@ -7,11 +7,11 @@ import 'view/tictactoe_view.dart';
 class TicTacToe {
   TicTacToe() {
     // add TicTacToe to the dashboard
-    DashboardService dashboardService = Get.find<DashboardService>();
+    final DashboardService dashboardService = Get.find<DashboardService>();
     dashboardService.games.add(DashboardIcon(name: 'TicTacToe', navigationTarget: '/tictactoe'));
 
     // add routes for tictactoe to the navigation service
-    NavigationService navigationController = Get.find<NavigationService>();
+    final NavigationService navigationController = Get.find<NavigationService>();
     navigationController.addNavigationPage(
       page: GetPage(
         name: '/tictactoe',
@@ -24,7 +24,7 @@ class TicTacToe {
   }
 }
 
-// Binding to start the correct controller for tictactow
+// Binding to start the correct controller for tictactoe
 class TicTacToeRouteBinding extends Bindings {
   @override
   void dependencies() {

@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nonamegamesuite/core/navigation_service.dart';
+import 'package:nonamegamesuite/core/player/player_service.dart';
 import 'package:nonamegamesuite/dashboard/dashboard_service.dart';
 import 'package:nonamegamesuite/games/tictactoe/tictactoe.dart';
 
 void main() {
-  Get.put(DashboardService());
-  Get.put(NavigationService());
-
+  initServices();
   initGames();
 
   runApp(NoNameGameSuite());
+}
+
+void initServices() {
+  Get.put(DashboardService());
+  Get.put(NavigationService());
+  Get.put(PlayerService());
+
 }
 
 void initGames() {

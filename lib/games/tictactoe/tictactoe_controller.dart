@@ -1,15 +1,10 @@
 import 'package:get/get.dart';
 
 class TicTacToeController extends GetxController {
-  var fields = List.filled(9, '', growable: false).obs;
+  RxList<String> fields = List.filled(9, '', growable: false).obs;
 
-  var players = [Player(symbol: 'X', name: 'Spieler 1'), Player(symbol: 'O', name: 'Spieler 2')].obs;
-  var currentPlayer = 0.obs;
-
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  RxList<Player> players = [Player(symbol: 'X', name: 'Spieler 1'), Player(symbol: 'O', name: 'Spieler 2')].obs;
+  RxInt currentPlayer = 0.obs;
 
   // restart
   void restart() {
@@ -81,7 +76,7 @@ class TicTacToeController extends GetxController {
 
   // draw
   bool _checkDrawCondition() {
-    for (var field in fields) {
+    for (final field in fields) {
       if (field.isEmpty) {
         return false;
       }
@@ -94,8 +89,8 @@ class TicTacToeController extends GetxController {
 // TODO This should be extracted to core service
 class Player {
   String symbol;
-  var name;
-  var score = 0;
+  String name;
+  int score = 0;
 
   Player({required this.symbol, required this.name});
 }

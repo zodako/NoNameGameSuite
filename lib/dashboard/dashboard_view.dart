@@ -9,7 +9,7 @@ class DashboardView extends StatefulWidget {
 }
 
 class _DashboardViewState extends State<DashboardView> {
-  DashboardService _dashboardService = Get.find<DashboardService>();
+  final DashboardService _dashboardService = Get.find<DashboardService>();
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +20,31 @@ class _DashboardViewState extends State<DashboardView> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
             Text(
-              'NoNameGameSuite',
+              'NoName Game Suite',
               style: Theme.of(context).textTheme.headline4,
             ),
-            SizedBox(
-              height: 30,
+            const SizedBox(
+              height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-              child: Divider(
-                thickness: 2,
+              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Expanded(
+                    child: Divider(
+                      thickness: 2,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () => Get.toNamed('/playeradmin'),
+                    icon: const Icon(Icons.contacts),
+                  ),
+                ],
               ),
             ),
             Obx(

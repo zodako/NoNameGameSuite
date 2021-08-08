@@ -26,7 +26,7 @@ class TicTacToeView extends StatelessWidget {
     );
   }
 
-  BorderSide _borderSide() => BorderSide(color: Colors.teal, width: 3.0);
+  BorderSide _borderSide() => const BorderSide(color: Colors.teal, width: 3.0);
 
   Border _determineBorder(int index) {
     switch (index) {
